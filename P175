@@ -1,0 +1,38 @@
+A-Frame
+<script src="https://aframe.io/releases/0.6.0/aframe.min.js"> </script>
+● AR.js
+<script
+src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+></script>
+● Local JavaScript Files
+<script src="./js/createModel.js"></script>
+<script src="./js/markerHandler.js"></script>
+var modelList = []
+AFRAME.registerComponent("markerhandler", {
+init: async function () {
+    var compounds = await this.getCompounds();
+this.el.addEventListener("markerFound", () => {
+      var elementName = this.el.getAttribute("element_name");
+      var barcodeValue = this.el.getAttribute("value");
+      elementsArray.push({ element_name: elementName, barcode_value: barcodeValue });
+this.el.addEventListener("markerLost", () => {
+      var elementName = this.el.getAttribute("element_name");
+      var index = elementsArray.findIndex(x => x.element_name === elementName);
+      if (index > -1) {
+        elementsArray.splice(index, 1);
+      }
+    });
+  },
+  distance = this.getDistance(marker1, marker2);
+
+        if (distance < 1.25) {
+          if (compound !== undefined) {
+            this.showCompound(compound);
+          } else {
+            messageText.setAttribute("visible", true);
+          }
+        } else {
+          messageText.setAttribute("visible", false);
+        }
+      }
+
